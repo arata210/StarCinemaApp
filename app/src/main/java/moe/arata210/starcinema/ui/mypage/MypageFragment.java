@@ -1,4 +1,4 @@
-package moe.arata210.starcinema.ui.notifications;
+package moe.arata210.starcinema.ui.mypage;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,21 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import moe.arata210.starcinema.databinding.FragmentNotificationsBinding;
+import moe.arata210.starcinema.databinding.FragmentMypageBinding;
 
-public class NotificationsFragment extends Fragment {
+public class MypageFragment extends Fragment {
 
-    private FragmentNotificationsBinding binding;
+    private FragmentMypageBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        MypageViewModel notificationsViewModel =
+                new ViewModelProvider(this).get(MypageViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentMypageBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textNotifications;
+        final TextView textView = binding.textMypage;
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }

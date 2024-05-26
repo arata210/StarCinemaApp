@@ -1,16 +1,16 @@
-package moe.arata210.starcinema.ui.dashboard;
+package moe.arata210.starcinema.ui.VIP;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DashboardViewModel extends ViewModel {
+public class VIPViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public DashboardViewModel() {
+    public VIPViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("会员页面");
     }
 
     public LiveData<String> getText() {
