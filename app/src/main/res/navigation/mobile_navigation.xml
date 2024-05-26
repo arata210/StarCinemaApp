@@ -8,18 +8,18 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="moe.arata210.starcinema.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:label="星光影院"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_vip"
         android:name="moe.arata210.starcinema.ui.VIP.VIPFragment"
-        android:label="@string/title_vip"
+        android:label="星光影院"
         tools:layout="@layout/fragment_vip" />
 
     <fragment
         android:id="@+id/navigation_mypage"
         android:name="moe.arata210.starcinema.ui.mypage.MypageFragment"
-        android:label="@string/title_mypage"
+        android:label="星光影院"
         tools:layout="@layout/fragment_mypage" />
 </navigation>
