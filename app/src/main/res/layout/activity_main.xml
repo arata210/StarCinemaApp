@@ -1,157 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:layout_marginTop="100dp"
-    tools:context=".MainActivity">
+    android:paddingTop="?attr/actionBarSize">
 
-    <!-- 用户头像和用户名 -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
-        android:paddingBottom="32dp">
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/v2_sbavt4"/>
-
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="用户7035"
-            android:textSize="20sp"
-            android:textColor="@android:color/black" />
-    </LinearLayout>
-
-    <!-- 优惠券、我的订单、会员卡 -->
-    <LinearLayout
+    <fragment
+        android:id="@+id/nav_host_fragment_activity_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:paddingBottom="32dp">
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation" />
 
-        <LinearLayout
-            android:id="@+id/coupons"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ticket"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="优惠券"
-                android:textSize="16sp"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/orders"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ticket"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="我的订单"
-                android:textSize="16sp"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/membership_card"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ticket"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="会员卡"
-                android:textSize="16sp"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- 用户协议、隐私政策、设置 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:divider="?android:attr/dividerHorizontal"
-        android:showDividers="middle">
-
-        <TextView
-            android:id="@+id/user_agreement"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="用户协议"
-            android:gravity="center_vertical"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:drawableEnd="@drawable/c001" />
-
-        <TextView
-            android:id="@+id/privacy_policy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="隐私政策"
-            android:textSize="16sp"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/black"
-            android:drawableEnd="@drawable/c001" />
-
-        <TextView
-            android:id="@+id/settings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="设置"
-            android:gravity="center_vertical"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:drawableEnd="@drawable/c001" />
-
-        <LinearLayout
-            android:id="@+id/main_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <!-- 这里添加其他视图 -->
-        </LinearLayout>
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
