@@ -3,8 +3,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="bottom"
-    android:layout_marginBottom="150dp"
-    android:padding="50dp">
+    android:layout_marginBottom="50dp"
+    android:padding="40dp">
 
     <EditText
         android:id="@+id/editTextPhone"
@@ -12,16 +12,42 @@
         android:layout_height="wrap_content"
         android:hint="手机号" />
 
-    <EditText
-        android:id="@+id/editTextCode"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="验证码"
-        android:inputType="number" />
+        android:layout_below="@id/editTextPhone"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/editTextCode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="验证码"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/buttonGetCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取验证码" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="注册/登录" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="此验证码是您的初始密码\n请在登录后修改密码"
+        android:textSize="24sp"
+        android:textColor="@android:color/holo_orange_dark"
+        android:layout_marginBottom="50dp"
+        android:gravity="center_horizontal" />
+
+
 </LinearLayout>

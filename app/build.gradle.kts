@@ -10,8 +10,8 @@ android {
         applicationId = "moe.arata210.starcinema"
         minSdk = 31
         targetSdk = 34
-        versionCode = 2
-        versionName = "2.1"
+        versionCode = 3
+        versionName = "3.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -43,7 +43,11 @@ dependencies {
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.activity)
     testImplementation(libs.junit)
+    implementation("com.google.zxing:core:3.4.1")
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
 }

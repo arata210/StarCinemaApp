@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,7 +17,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import moe.arata210.starcinema.R;
-import moe.arata210.starcinema.ui.mypage.LoginActivity;
 
 public class MypageFragment extends Fragment {
 
@@ -29,7 +29,6 @@ public class MypageFragment extends Fragment {
         mypageViewModel = new ViewModelProvider(this).get(MypageViewModel.class);
         View root = inflater.inflate(R.layout.fragment_mypage, container, false);
 
-        // 初始化视图组件
         ImageView profileImage = root.findViewById(R.id.image_profile);
         usernameText = root.findViewById(R.id.user_name);
 
@@ -41,10 +40,8 @@ public class MypageFragment extends Fragment {
         TextView privacyPolicyText = root.findViewById(R.id.privacy_policy);
         TextView settingsText = root.findViewById(R.id.settings);
 
-        // 设置用户名
         mypageViewModel.getUsername().observe(getViewLifecycleOwner(), usernameText::setText);
 
-        // 设置点击事件
         profileImage.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), LoginActivity.class);
             startActivityForResult(intent, LOGIN_REQUEST_CODE);
@@ -80,13 +77,15 @@ public class MypageFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == LOGIN_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            if (data != null) {
+        if (requestCode == LOGIN_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK && data != null) {
                 String username = data.getStringExtra("username");
                 if (username != null) {
-                    usernameText.setText(username);
                     mypageViewModel.setUsername(username);
+                    Toast.makeText(getContext(), "欢迎 " + username, Toast.LENGTH_SHORT).show();
                 }
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                Toast.makeText(getContext(), "登录取消", Toast.LENGTH_SHORT).show();
             }
         }
     }
