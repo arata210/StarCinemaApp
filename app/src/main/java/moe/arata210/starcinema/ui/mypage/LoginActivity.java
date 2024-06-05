@@ -94,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void getPasscode(String phone) {
-        String url = "http://192.168.1.4:5050/passcode?phone=" + phone;
+        String url = "http://192.168.1.4:5050/api/my/passcode?phone=" + phone;
 
         Request request = new Request.Builder().url(url).build();
 
@@ -135,7 +135,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void performLogin(String phoneNumber, String verificationCode) {
-        String url = "http://192.168.1.4:5050/check?phone=" + phoneNumber + "&code=" + verificationCode;
+        String url = "http://192.168.1.4:5050/api/my/check?phone=" + phoneNumber + "&code=" + verificationCode;
 
         Request request = new Request.Builder().url(url).build();
 
