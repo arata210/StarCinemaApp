@@ -10,8 +10,8 @@ android {
         applicationId = "moe.arata210.starcinema"
         minSdk = 31
         targetSdk = 34
-        versionCode = 3
-        versionName = "3.1"
+        versionCode = 4
+        versionName = "4.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -49,6 +49,8 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.1")
     implementation("androidx.recyclerview:recyclerview:1.2.1")
     implementation("androidx.cardview:cardview:1.0.0")
+    implementation("com.google.zxing:core:3.4.1")
+    implementation("com.journeyapps:zxing-android-embedded:4.2.0")
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
